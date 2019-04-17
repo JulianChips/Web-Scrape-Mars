@@ -11,7 +11,8 @@
     <div class="container">
          <div class="jumbotron text-center">
                 <h1>Mission To Mars</h1>
-                <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>                  
+                <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p> 
+                <p>May Take Around 30 Seconds To Finish Scrape</p>                 
         </div>
     <div class="row">
         <div class="col-12">
@@ -39,8 +40,10 @@
             {% for hem in mars_db.Hemisphere_Images%}
             <div class="col-6">
                     <div class="card">
-                        <h2>{{hem.title}}</h2> <br>
-                        <img src="{{hem.img_url}}" alt="{{hem.title}}"> 
+                        <img src="{{hem.img_url}}" class="card_img_top w-100" alt="{{hem.title}}">
+                        <div class="card-body">
+                            <p class="card-text">{{hem.title}}</p>
+                        </div> 
                     </div>
             </div>
             {% endfor %}
