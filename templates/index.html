@@ -32,10 +32,18 @@
                     <p>{{mars_db.Weather}}</p> 
             </div>
             <h3>Mars Facts</h3><br>
-            {{mars_db.Facts_Table}}
+
+            {{mars_db.Facts_Table|safe}}
+
         </div>
     </div>
-
+<div class="row ">
+    <div class="col-12 text-center my-2">
+        <h1>Hemispheres</h1><br>
+        <hr>
+    </div>
+    
+</div>
         <div class="row">
             {% for hem in mars_db.Hemisphere_Images%}
             <div class="col-6">
