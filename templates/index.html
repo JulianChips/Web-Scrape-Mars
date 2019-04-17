@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars Mission</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+         <div class="jumbotron text-center">
+                <h1>Mission To Mars</h1>
+                <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>                  
+        </div>
+    <div class="row">
+        <div class="col-12">
+            <h1>Latest Mars News</h1>
+            <h3>{{mars_db.News_Title}}</h3>
+            <p>{{mars_db.News_P}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <h1 class="justify-content-left">Featured Mars Image</h1>
+            <img class="w-100" src="{{mars_db.Featured_Image}}" alt="Featured Image">
+        </div>
+        <div class="col-4">
+            <div class="card">
+                    <h3 class="justify-content-left">Current Weather on Mars</h3>
+                    <p>{{mars_db.Weather}}</p> 
+            </div>
+            <h3>Mars Facts</h3><br>
+            {{mars_db.Facts_Table}}
+        </div>
+    </div>
+
+        <div class="row">
+            {% for hem in mars_db.Hemisphere_Images%}
+            <div class="col-6">
+                    <div class="card">
+                        <h2>{{hem.title}}</h2> <br>
+                        <img src="{{hem.img_url}}" alt="{{hem.title}}"> 
+                    </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>    
+</body>
+</html>
